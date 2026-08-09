@@ -1,0 +1,14 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Office / PowerPoint temp files
+~$*.pptx
+~$*.docx
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.tmp
