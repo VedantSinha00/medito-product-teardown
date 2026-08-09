@@ -1,11 +1,18 @@
 # Medito — Strategic Product Teardown & Growth Blueprint
 
 [![Product Management](https://img.shields.io/badge/Domain-Product_Management-blue.svg)](https://github.com/VedantSinha00)
-[![Teardown Status](https://img.shields.io/badge/Status-100%25_Complete-brightgreen.svg)](docs/teardown/medito_teardown_analysis.md)
-[![Deck Blueprint](https://img.shields.io/badge/Artifact-12--Slide_Blueprint-purple.svg)](docs/deck/medito_deck_blueprint.md)
+[![Teardown Status](https://img.shields.io/badge/Status-100%25_Complete-brightgreen.svg)](Product%20Teardown%20%E2%80%94%20Medito.md)
+[![Deck Blueprint](https://img.shields.io/badge/Artifact-12--Slide_Blueprint-purple.svg)](Medito%20Teardown%20%E2%80%94%2012-Slide%20Deck%20Blueprint.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 An in-depth, depth-over-volume Product Teardown analyzing **Medito** — a free, open-source, donation-funded non-profit meditation app (~4.1M users, $0 paywalls, no mandatory account) benchmarked against its commercial contrast foil **Headspace**.
+
+---
+
+## Direct Artifact Links (Top Level)
+
+- 📄 **[Product Teardown — Medito.md](Product%20Teardown%20%E2%80%94%20Medito.md)**: Master 6-phase teardown analysis, research observations, Opportunity Solution Tree, and RICE matrix.
+- 🎨 **[Medito Teardown — 12-Slide Deck Blueprint.md](Medito%20Teardown%20%E2%80%94%2012-Slide%20Deck%20Blueprint.md)**: Complete slide-by-slide text, wireframes, visuals, and speaker notes.
 
 ---
 
@@ -103,12 +110,11 @@ The full presentation deck blueprint and design specifications are structured as
 ```
 medito-product-teardown/
 ├── README.md                           # Master GitHub Repository Documentation
+├── Product Teardown — Medito.md        # Master 6-Phase Teardown Analysis & Research (TOP LEVEL)
+├── Medito Teardown — 12-Slide Deck Blueprint.md # Slide Deck Text, Wireframes & Speaker Notes (TOP LEVEL)
 │
-├── docs/                               # Comprehensive Documentation & Teardown Artifacts
-│   ├── teardown/
-│   │   └── medito_teardown_analysis.md # Full 6-Phase Teardown Analysis & Research
+├── docs/                               # Supporting Design & Audit Artifacts
 │   ├── deck/
-│   │   ├── medito_deck_blueprint.md    # Slide-by-slide content, wireframes & speaker notes
 │   │   ├── claude_design_prompts.md    # High-fidelity Claude Design prompts & CSS specs
 │   │   ├── slide_design_system.md      # Design system tokens, color palettes & typography
 │   │   └── Medito_Presentation_Teardown.pptx # Downloadable PowerPoint Deck Asset
@@ -124,16 +130,6 @@ medito-product-teardown/
         ├── medito/                     # Medito app UI screenshots (11 images)
         └── headspace/                  # Headspace foil UI screenshots (2 images)
 ```
-
----
-
-## Key Files & Direct Links
-
-- 📄 **[Full Teardown Analysis](docs/teardown/medito_teardown_analysis.md)**: Deep dive into the 6-phase PM teardown.
-- 🎨 **[12-Slide Deck Blueprint](docs/deck/medito_deck_blueprint.md)**: Complete slide text, wireframe layouts, and speaker notes.
-- ⚡ **[Claude Design Prompts](docs/deck/claude_design_prompts.md)**: Production-ready prompts for generating slide graphics.
-- 📐 **[Slide Design Reference](docs/deck/slide_design_system.md)**: Light-mode styling rules and component tokens.
-- 📊 **[PowerPoint Presentation Deck](docs/deck/Medito_Presentation_Teardown.pptx)**: Executable `.pptx` presentation.
 
 ---
 
