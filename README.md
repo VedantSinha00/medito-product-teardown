@@ -2,154 +2,117 @@
 
 [![Product Management](https://img.shields.io/badge/Domain-Product_Management-blue.svg)](https://github.com/VedantSinha00)
 [![Presentation Deck](https://img.shields.io/badge/Presentation-Medito__Presentation__Teardown.pptx-orange.svg)](Medito_Presentation_Teardown.pptx)
-[![Teardown Status](https://img.shields.io/badge/Status-100%25_Complete-brightgreen.svg)](docs/teardown/medito_teardown_analysis.md)
+[![Teardown Status](https://img.shields.io/badge/Status-100%25_Reworked_%26_Locked-brightgreen.svg)](docs/teardown/medito_teardown_analysis.md)
 [![Deck Blueprint](https://img.shields.io/badge/Artifact-12--Slide_Blueprint-purple.svg)](docs/deck/medito_deck_blueprint.md)
+[![Claude Prompts](https://img.shields.io/badge/Artifact-Claude__Design__Prompts-blueviolet.svg)](docs/deck/claude_design_prompts.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-An in-depth, depth-over-volume Product Teardown analyzing **Medito** — a free, open-source, donation-funded non-profit meditation app (~4.1M users, $0 paywalls, no mandatory account) benchmarked against its commercial contrast foil **Headspace**.
+An in-depth, depth-over-volume Product Teardown analyzing **Medito** — a free, open-source, donation-funded non-profit meditation app (~4.1M users, €0 paywalls, zero forced accounts) benchmarked against its commercial contrast foil **Headspace**.
 
 ---
 
 ## Top-Level Deliverables
 
-- 📊 **[Medito_Presentation_Teardown.pptx](Medito_Presentation_Teardown.pptx)**: Master 12-slide PowerPoint presentation deck (Top Level).
-- 📄 **[Full Teardown Analysis](docs/teardown/medito_teardown_analysis.md)**: Deep dive into the 6-phase PM teardown.
-- 🎨 **[12-Slide Deck Blueprint](docs/deck/medito_deck_blueprint.md)**: Complete slide text, wireframes, and speaker notes.
+- 📊 **[Medito_Presentation_Teardown.pptx](Medito_Presentation_Teardown.pptx)**: Master 12-slide PowerPoint presentation deck (Sitting right at root).
+- 🎨 **[12-Slide Deck Blueprint](docs/deck/medito_deck_blueprint.md)**: Complete slide blueprints, ASCII UI wireframes, math derivations, and word-for-word speaker notes.
+- 💬 **[Claude Design Generation Prompts](docs/deck/claude_design_prompts.md)**: Copy-paste ready 16:9 prompts and delta change logs for rendering all 12 slides in Claude Design.
+- 📄 **[Full Teardown Analysis](docs/teardown/medito_teardown_analysis.md)**: Deep-dive 6-phase PM teardown working note & OST.
+- 📋 **[Master Rework Specification](docs/audit_logs/medito_rework_spec.md)**: MECE categorization of 18 review feedback items, 12-slide consolidation map, and 4-tier work roadmap.
 
 ---
 
-## Executive Summary & Core Spine
+## Executive Summary & Survival Notation Key ($Z$)
 
 Medito operates on a rare product philosophy in consumer SaaS: **zero gating, zero dark patterns, and zero forced funnels**. While this protects user trust and upholds its non-profit mission, it introduces structural trade-offs between open access, user activation, and financial sustainability.
 
-### The Spine Thesis
-> *"Medito deliberately refuses to gate, pressure, or hard-funnel — it bets on the user. Does that bet serve the mission, or does it quietly self-select for users who were already going to be fine?"*
+### The Survival Notation Key ($Z$)
+- **$Z_1$ Mission Practice (Engagement):** Sustained meditation habit & pack completion (4.1M users, €0 paywalls).
+- **$Z_2$ Revenue Sustainability (Donations):** Voluntary gifts & recurring MRR (€122k/yr total opex / ~€10k/mo burn, decoupled from engagement).
+- **$Z_3$ Cost-to-Serve (Zero-Server Architecture):** Near-zero server cost-to-serve (open-source client app, volunteer ops, static CDN caching).
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────┐
 │                                SURVIVAL TRIAD MODEL (Z)                                 │
 ├───────────────────────────────┬───────────────────────────────┬─────────────────────────┤
-│  Z₁: MISSION PRACTICE         │  Z₂: DONATION COVERAGE        │  Z₃: COST-TO-SERVE (~$0)│
-│  4.1M Users | 0 Paywalls      │  €10k/mo Operating Burn       │  Open Source Architecture│
+│  Z₁: MISSION PRACTICE         │  Z₂: DONATION COVERAGE        │  Z₃: COST-TO-SERVE (~€0)│
+│  4.1M Users | €0 Paywalls     │  ~€10k/mo Operating Burn      │  Open Source Architecture│
 │  Sustained meditation habit   │  Decoupled from engagement    │  Volunteer Operations   │
 └───────────────────────────────┴───────────────────────────────┴─────────────────────────┘
 ```
 
 ---
 
-## Subject vs. Foil Matrix
+## Subject vs. Foil Contrast Matrix
 
 | Dimension | **Medito** (Subject) | **Headspace** (Foil) |
 | :--- | :--- | :--- |
-| **Business Model** | Non-profit donation-funded (€10k/mo cost) | Commercial subscription SaaS ($69.99/yr) |
-| **Access Control** | Open access, no account required, 0 paywalls | Hard paywall after 7-day trial, required onboarding |
-| **Pedagogy** | Minimalist, self-directed, inert guidance | Structured linear tracks, heavy push notifications, gamification |
-| **Strategic Tradeoff**| High trust / low friction vs. **activation drag & revenue decoupling** | High conversion / tight habit loops vs. **gating & paywall friction** |
+| **Business Model** | Non-profit donation-funded (~€10k/mo opex) | Commercial subscription SaaS ($69.99/yr) |
+| **User Evidence** | iOS 4.9★ / Play Store 4.8★ (pedagogical praise) | Trustpilot 1.4/5 (aggressive billing/cancellation complaints) |
+| **Access Control** | Open access, no account required, €0 paywalls | Hard paywall after 7-day trial, required account onboarding |
+| **Pedagogy** | Minimalist, self-directed, unguided catalog | Structured linear tracks, heavy push notifications, gamification |
+| **Strategic Tension**| High trust / zero friction vs. **novice activation drag & revenue decoupling** | High conversion / tight habit loops vs. **paywall friction & billing churn** |
 
 ---
 
-## Strategic Linkages & Key Findings
+## 12-Slide Macro Blueprint Structure
 
-1. **Revenue Decoupling ($Z_2$ Leak)**:
-   - Medito's power users (highest engagement) pay €0 because donation triggers occur randomly or on static screens without anchoring to value realization moments.
-   - *Linkage*: Un-anchored donation requests trade away donation coverage ($Z_2$) to preserve clean UI aesthetics.
+The full presentation deck blueprint and design specifications are organized across a 12-slide strategic arc:
 
-2. **Activation Leakage ($Z_1$ Drag)**:
-   - Novice users experience choice paralysis due to a flat content library with minimal orientation scaffolding.
-   - *Linkage*: Minimalist guidance protects low operating costs ($Z_3$), but trades away activation of users who need structured onboarding.
-
-3. **Localization Bottleneck ($Z_3$ Scaling Constraint)**:
-   - Global expansion is throttled because volunteer translator coordination happens manually across Discord and spreadsheets.
-   - *Linkage*: Manual volunteer management keeps server costs low ($Z_3$) but creates operational drag on international growth.
-
----
-
-## Prioritized Product Interventions (RICE Matrix)
-
-```
-        HIGH IMPACT
-             │
-   [#1 Pay-It-Forward] ──► (RICE: 120 | Focus: Z₂ Revenue)
-             │
-   [#2 10s Intent Pin] ──► (RICE: 96  | Focus: Z₁ Activation)
-             │
-   [#3 In-App Translator] ──► (RICE: 60  | Focus: Z₃ Volunteer Ops)
-             │
- ────────────┴──────────────────────────────────────── LOW EFFORT
-```
-
-| Rank | Solution | RICE Score | Target Metric | Effort |
-| :---: | :--- | :---: | :---: | :---: |
-| **#1** | **Pay-It-Forward Micro-Donation Copy Reframing** | **120** | $Z_2$ (Donation Conversion) | 0.5 Person-Weeks |
-| **#2** | **10s Intent Pre-Pin & Dynamic Pathing** | **96** | $Z_1$ (D30 Retention) | 1.0 Person-Weeks |
-| **#3** | **In-App Translator Portal & Workflow** | **60** | $Z_3$ (Operational Velocity) | 0.5 Person-Weeks |
+| Slide # | Breadcrumb Tag | Slide Title | Strategic Core Focus |
+| :---: | :--- | :--- | :--- |
+| **Slide 1** | `[OVERVIEW]` | **Title, Executive Summary & $Z$-Key** | Teardown ground + $Z_1$ Engagement, $Z_2$ Revenue, $Z_3$ Cost-to-Serve notation legend. |
+| **Slide 2** | `[CONTEXT]` | **Product Orientation & User Segments** | Product intro + 3-layered Christensen/Ulwick JTBD statements for Novices vs. Sanctuary Seekers. |
+| **Slide 3** | `[CONTEXT]` | **Competitive Foil & Problem Evidence** | Headspace contrast matrix (4.9★ App Store vs 1.4/5 Trustpilot billing gap) + empirical review mining. |
+| **Slide 4** | `[DIAGNOSIS]` | **Firsthand Journey Walkthrough** | Onboarding map grounded in 8-tile home grid UI screenshot & `r/Medito` manual routing threads. |
+| **Slide 5** | `[DIAGNOSIS]` | **Root Cause Spine & NGO Economics** | Single causal spine merging NGO ground $\rightarrow$ unforecastable revenue $\rightarrow$ $Z_3$ zero-server burn $\rightarrow$ inert UI. |
+| **Slide 6** | `[STRATEGY]` | **Success Definition & Metric Architecture** | North Star (MAPH) + 3 L1 driver levers + $Z_3$ CDN bandwidth cost bounding rule ($\le €0.002$/MAU). |
+| **Slide 7** | `[STRATEGY]` | **Prioritization & Reversibility Filter** | Calibrated 4-row RICE matrix (Reach 1–10, Impact 0.25–3, Conf 0.8) + Reversibility Guarantee Box. |
+| **Slide 8** | `[SOLUTIONS]` | **Deep Dive #1: Native Checkout & Copy** | Native Stripe Apple/Google Pay Sheet (`flutter_stripe`, 0% Apple tax, Baymard ~70% drop-off) + ~€10k/mo opex copy. |
+| **Slide 9** | `[SOLUTIONS]` | **Deep Dive #2: Intent Pre-Pin Activation** | 10-sec intake pre-pinning starter course to hero tile, 100% client-side (`intake_matrix.json`), non-blocking skip. |
+| **Slide 10** | `[SOLUTIONS]` | **Deep Dive #3: Contextual Translator Credits** | In-app attribution badge for volunteer localization anchored to open-source research (Wikipedia: +35–40% retention). |
+| **Slide 11** | `[EXECUTION]` | **Risks, Assumptions & Deferred Scope** | 3-row Risk Matrix (Guilt Churn, $Z_3$ Infra, Volunteer Fatigue) + Scope Hygiene Box (#5 Deferred, #6–#7 Dropped). |
+| **Slide 12** | `[EXECUTION]` | **Rollout Plan, Experiments & Rollbacks** | W1–W4 pipeline with exact sample-size math ($N=148\text{k}$ sessions @ 15k/day over 10 days) + Delta ($\Delta$) rollback triggers. |
 
 ---
 
-## 12-Slide Deck Structure
+## Calibrated Prioritization Matrix (RICE Scores)
 
-The full presentation deck blueprint and design specifications are structured as follows:
+$$RICE = \frac{\text{Reach} \times \text{Impact} \times \text{Confidence}}{\text{Effort}}$$
 
-| Slide | Focus | Key Content |
-| :---: | :--- | :--- |
-| **01** | Executive Summary | Survival Triad ($Z_1, Z_2, Z_3$), Thesis Spine, Intervention Summary |
-| **02** | Subject vs. Foil | Strategic Contrast Matrix: Medito vs. Headspace |
-| **03** | User Research & JTBD | Functional, Emotional, and Social Jobs-To-Be-Done |
-| **04** | Strategic Friction Map | 3 Linkages ($Z_1$ Activation Drag, $Z_2$ Revenue Decoupling, $Z_3$ Volunteer Bottleneck) |
-| **05** | Opportunity Solution Tree | Visual OST mapping root causes to validated opportunities |
-| **06** | RICE Prioritization | Quantitative RICE scoring matrix & trade-off analysis |
-| **07** | Solution #1: Pay-It-Forward | UX Redesign & Anchor Copy for Donation Conversion ($Z_2$) |
-| **08** | Solution #2: 10s Intent Pin | Lightweight Onboarding Scaffolding for Activation ($Z_1$) |
-| **09** | Solution #3: Translator Portal | Volunteer Localization Workflow Optimization ($Z_3$) |
-| **10** | Impact & Counter-Metrics | Measuring $Z_1/Z_2/Z_3$ success & guardrail metrics |
-| **11** | Implementation Roadmap | 2-Phase Execution Plan across 2.0 Person-Weeks |
-| **12** | Strategic Takeaways | Core PM Principles on Non-Profit Product Architecture |
+| Rank | Solution & Target Lever | Reach (1–10) | Impact (0.25–3) | Confidence (Tier 2) | Effort | RICE Score | Architectural Reversibility |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **#1** | **Native 1-Tap Checkout ($Z_2$ Revenue)** | **7** | **3.0** | **0.8 (Stripe)** | **0.5 wk** | **33.6** | 🟢 Two-Way Door (Client-Side Sheet) |
+| **#2** | **Intent Pre-Pin Activation ($Z_1$ Activation)** | **10** | **2.0** | **0.8 (PLG)** | **1.0 wk** | **16.0** | 🟢 Two-Way Door (Local `intake_matrix.json`) |
+| **#3** | **Contextual Translator Credits ($Z_3$ Ops)** | **2** | **2.0** | **0.8 (Wikipedia)**| **0.5 wk** | **6.4** | 🟢 Two-Way Door (Local `credits.json`) |
+| **#4** | **Streak Share Link Fix ($Z_1$ Quick Win)** | **3** | **1.0** | **0.8 (Social)** | **0.5 wk** | **4.8** | 🟢 Two-Way Door (String Fix) |
 
 ---
 
-## Repository Structure
+## Repository Directory Structure
 
-```
-medito-product-teardown/
-├── README.md                           # Master GitHub Repository Documentation
-├── Medito_Presentation_Teardown.pptx   # Master PowerPoint Presentation Deck (TOP LEVEL)
-│
-├── docs/                               # Comprehensive Documentation & Teardown Artifacts
-│   ├── teardown/
-│   │   └── medito_teardown_analysis.md # Full 6-Phase Teardown Analysis & Research
+```text
+G:\College\PROJECTS\Product Teardowns\Medito\
+├── Medito_Presentation_Teardown.pptx   <-- Master Presentation Deck (Sitting at Root)
+├── README.md                           <-- Project Overview & Strategic Architecture
+├── docs/
 │   ├── deck/
-│   │   ├── medito_deck_blueprint.md    # Slide-by-slide content, wireframes & speaker notes
-│   │   ├── claude_design_prompts.md    # High-fidelity Claude Design prompts & CSS specs
-│   │   └── slide_design_system.md      # Design system tokens, color palettes & typography
-│   ├── frameworks/
-│   │   └── product_teardown_master_guide.md # PM Teardown Framework & Methodology Guide
-│   └── audit_logs/
-│       ├── medito_teardown_audit.md    # Quality audit log & validation passes
-│       ├── medito_sync_changelist.md   # Sync & linkage validation notes
-│       └── medito_polish_changelist.md # Slide design refinement logs
-│
-└── assets/                             # Image & Visual Assets
-    └── screenshots/
-        ├── medito/                     # Medito app UI screenshots (11 images)
-        └── headspace/                  # Headspace foil UI screenshots (2 images)
+│   │   ├── medito_deck_blueprint.md    <-- Complete 12-Slide Blueprint, ASCII Wireframes & Speaker Notes
+│   │   ├── claude_design_prompts.md   <-- Copy-Paste Claude Design Generation Prompts & Delta Logs
+│   │   └── slide_design_system.md     <-- Brand Color Tokens & Light-Mode Design Tokens
+│   ├── teardown/
+│   │   └── medito_teardown_analysis.md <-- 6-Phase PM Teardown Analysis & Research Working Note
+│   ├── audit_logs/
+│   │   ├── medito_rework_spec.md       <-- Master Rework Spec & MECE Audit Categorization
+│   │   └── medito_teardown_audit.md    <-- Audit Changelist & Precedent Verifications
+│   └── frameworks/
+│       └── product_teardown_master_guide.md <-- Core PM Teardown Methodology Guide
+└── assets/                             <-- UI Screenshots & Embedded Asset Crops
 ```
 
 ---
 
-## Methodology & Frameworks Used
+## Author & Credits
 
-This teardown follows the **Product Teardown Master Guide** framework:
-1. **Phase 1: Foundation & Alignment** — Context gathering, survival metrics ($Z$), and subject/foil alignment.
-2. **Phase 2: Observation & Evidence** — Multi-pass UX walkthroughs and behavioral logging.
-3. **Phase 3: Synthesis & Linkages** — Root cause analysis connecting friction to survival metrics.
-4. **Phase 4: Solutioning (OST)** — Opportunity Solution Tree mapping.
-5. **Phase 5: Prioritization & Impact** — RICE matrix scoring and counter-metric definition.
-6. **Phase 6: Artifact Creation** — Presentation deck design and executive documentation.
-
----
-
-## License & Credits
-
-- **Author**: [Vedant Sinha](https://github.com/VedantSinha00)
-- **App Teardown Subject**: [Medito Foundation](https://meditofoundation.org/)
-- **License**: MIT License
+*   **Author:** [Vedant Sinha](https://github.com/VedantSinha00) (PM + Dev at IIT Guwahati)
+*   **Subject App:** [Medito App](https://meditofoundation.org/) by Medito Foundation (Open Source & Non-Profit)
+*   **License:** MIT License
